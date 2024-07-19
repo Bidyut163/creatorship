@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -9,9 +9,12 @@ const Register = ({ auth: { isAuthenticated, userType }, registerCreator }) => {
         fullname: '',
         email: '',
         password: '',
+        creatorType: '',
     });
 
-    const { fullname, email, password } = formData;
+    const [formErrors, setFormErrors] = useState({});
+
+    const { fullname, email, password, creatorType } = formData;
 
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,9 +22,36 @@ const Register = ({ auth: { isAuthenticated, userType }, registerCreator }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        // setFormErrors(validate(formData));
+        setFormErrors(validate(formData));
 
-        registerCreator({ fullname, email, password });
+        registerCreator({ fullname, email, password, creatorType });
+    };
+
+    const validate = (values) => {
+        const errors = {};
+        const email_regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+        if (!values.fullname) {
+            errors.fullname = 'Fullname is required';
+        }
+
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!email_regex.test(values.email)) {
+            errors.email = 'Please enter a valid Email';
+        }
+        if (!values.password) {
+            errors.password = 'password is required';
+        }
+        // } else if (values.password.length < 6) {
+        //     errors.password = 'password needs to be atleast 6 characters long';
+        // }
+
+        if (!values.creatorType) {
+            errors.creatorType = 'Select Content Type';
+        }
+
+        return errors;
     };
 
     if (isAuthenticated) {
@@ -63,6 +93,11 @@ const Register = ({ auth: { isAuthenticated, userType }, registerCreator }) => {
                                             value={fullname}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        {formErrors.fullname ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.fullname}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div className="form-group">
                                         <input
@@ -74,22 +109,53 @@ const Register = ({ auth: { isAuthenticated, userType }, registerCreator }) => {
                                             value={email}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        {formErrors.email ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.email}
+                                            </p>
+                                        ) : null}
                                     </div>
-                                    {/* <div className="form-group">
+                                    <div className="form-group">
                                         <select
                                             className="form-control form-control-lg"
                                             id="exampleFormControlSelect2"
+                                            name="creatorType"
+                                            value={creatorType}
+                                            onChange={(e) => onChange(e)}
                                         >
-                                            <option>Country</option>
-                                            <option>
-                                                United States of America
+                                            <option
+                                                value=""
+                                                selected
+                                                disabled
+                                                hidden
+                                            >
+                                                Content Type
                                             </option>
-                                            <option>United Kingdom</option>
-                                            <option>India</option>
-                                            <option>Germany</option>
-                                            <option>Argentina</option>
+                                            <option value="Youtuber">
+                                                Youtuber
+                                            </option>
+                                            <option value="Soical Media Influencer">
+                                                Soical Media Influencer
+                                            </option>
+                                            <option value="Website content writer">
+                                                Website content writer
+                                            </option>
+                                            <option value="Blogger">
+                                                Blogger
+                                            </option>
+                                            <option value="Video Creators">
+                                                Video Creators
+                                            </option>
+                                            <option value="Photographer">
+                                                Photographer
+                                            </option>
                                         </select>
-                                    </div> */}
+                                        {formErrors.creatorType ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.creatorType}
+                                            </p>
+                                        ) : null}
+                                    </div>
                                     <div className="form-group">
                                         <input
                                             type="password"
@@ -100,6 +166,11 @@ const Register = ({ auth: { isAuthenticated, userType }, registerCreator }) => {
                                             value={password}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        {formErrors.password ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.password}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div className="mb-4">
                                         {/* <div className="form-check">

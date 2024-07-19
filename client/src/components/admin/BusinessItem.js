@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BusinessItem = ({ business: { fullname, _id } }) => {
+const BusinessItem = ({ business: { fullname, _id, industry } }) => {
     return (
         <tr>
             <td class="py-1">
@@ -11,7 +11,7 @@ const BusinessItem = ({ business: { fullname, _id } }) => {
                 />
             </td>
             <td>{fullname}</td>
-            <td>
+            {/* <td>
                 <div class="progress">
                     <div
                         class="progress-bar bg-success"
@@ -22,8 +22,8 @@ const BusinessItem = ({ business: { fullname, _id } }) => {
                         aria-valuemax="100"
                     ></div>
                 </div>
-            </td>
-            <td>Information Technology</td>
+            </td> */}
+            <td>{industry}</td>
             <td>
                 <Link
                     style={{ fontSize: '.8rem', padding: '.2rem' }}

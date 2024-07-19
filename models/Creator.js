@@ -14,6 +14,11 @@ const CreatorSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    creatorType: {
+        type: String,
+        required: true,
+    },
 });
 
-module.exports = User = mongoose.model('creator', CreatorSchema);
+module.exports = Creator = mongoose.model('creator', CreatorSchema);

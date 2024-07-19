@@ -14,6 +14,11 @@ const BusinessSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    industry: {
+        type: String,
+        required: true,
+    },
 });
 
-module.exports = User = mongoose.model('business', BusinessSchema);
+module.exports = Business = mongoose.model('business', BusinessSchema);

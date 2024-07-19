@@ -56,4 +56,4 @@ const CreatorProfileSchema = new mongoose.Schema({
     },
 });
 
-module.exports = User = mongoose.model('creatorProfile', CreatorProfileSchema);
+module.exports = mongoose.model('creatorProfile', CreatorProfileSchema);

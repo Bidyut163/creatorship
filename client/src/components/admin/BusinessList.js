@@ -25,7 +25,7 @@ const BusinessList = ({ getBusinesses, business: { businesses, loading } }) => {
                                 <tr>
                                     <th>User</th>
                                     <th>Organization name</th>
-                                    <th>Profile completion</th>
+                                    {/* <th>Profile completion</th> */}
                                     <th>Industry</th>
                                     <th>View details</th>
                                 </tr>

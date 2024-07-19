@@ -15,7 +15,7 @@ const isAuth = require('../../middleware/isAuth');
 // @desc Register as Creator
 // @access Public
 router.post('/creators', async (req, res) => {
-    const { fullname, email, password } = req.body;
+    const { fullname, email, password, creatorType } = req.body;
 
     try {
         // see if creator exists
@@ -31,6 +31,7 @@ router.post('/creators', async (req, res) => {
             fullname,
             email,
             password,
+            creatorType,
         });
 
         // Encrypt password
@@ -67,7 +68,7 @@ router.post('/creators', async (req, res) => {
 // @desc Register as a Business
 // @access Public
 router.post('/businesses', async (req, res) => {
-    const { fullname, email, password } = req.body;
+    const { fullname, email, password, industry } = req.body;
 
     try {
         // see if creator exists
@@ -83,6 +84,7 @@ router.post('/businesses', async (req, res) => {
             fullname,
             email,
             password,
+            industry,
         });
 
         // Encrypt password

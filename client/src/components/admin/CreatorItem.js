@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CreatorItem = ({ creator: { fullname, _id } }) => {
+const CreatorItem = ({ creator: { fullname, _id, creatorType } }) => {
     return (
         <tr>
             <td class="py-1">
@@ -11,7 +11,7 @@ const CreatorItem = ({ creator: { fullname, _id } }) => {
                 />
             </td>
             <td>{fullname}</td>
-            <td>
+            {/* <td>
                 <div class="progress">
                     <div
                         class="progress-bar bg-success"
@@ -22,8 +22,8 @@ const CreatorItem = ({ creator: { fullname, _id } }) => {
                         aria-valuemax="100"
                     ></div>
                 </div>
-            </td>
-            <td>Video Making</td>
+            </td> */}
+            <td>{creatorType}</td>
             <td>
                 <Link
                     to={`/admin/creators/${_id}`}

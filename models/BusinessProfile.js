@@ -55,7 +55,4 @@ const BusinessProfileSchema = new mongoose.Schema({
     },
 });
 
-module.exports = User = mongoose.model(
-    'businessProfile',
-    BusinessProfileSchema
-);
+module.exports = mongoose.model('businessProfile', BusinessProfileSchema);

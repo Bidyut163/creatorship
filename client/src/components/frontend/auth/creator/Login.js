@@ -10,6 +10,8 @@ const Login = ({ auth: { isAuthenticated, userType }, loginCreator }) => {
         password: '',
     });
 
+    const [formErrors, setFormErrors] = useState({});
+
     const { email, password } = formData;
 
     const onChange = (e) => {
@@ -19,7 +21,25 @@ const Login = ({ auth: { isAuthenticated, userType }, loginCreator }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        setFormErrors(validate(formData));
+
         loginCreator(email, password);
+    };
+
+    const validate = (values) => {
+        const errors = {};
+        const email_regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!email_regex.test(values.email)) {
+            errors.email = 'Please enter a valid Email';
+        }
+        if (!values.password) {
+            errors.password = 'password is required';
+        }
+
+        return errors;
     };
 
     // Redirect if Logged in
@@ -60,6 +80,11 @@ const Login = ({ auth: { isAuthenticated, userType }, loginCreator }) => {
                                             value={email}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        {formErrors.email ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.email}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div className="form-group">
                                         <input
@@ -71,6 +96,11 @@ const Login = ({ auth: { isAuthenticated, userType }, loginCreator }) => {
                                             value={password}
                                             onChange={(e) => onChange(e)}
                                         />
+                                        {formErrors.password ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.password}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div className="mt-3">
                                         <button

@@ -25,7 +25,7 @@ const CreatorList = ({ getCreators, creator: { creators, loading } }) => {
                                 <tr>
                                     <th>User</th>
                                     <th>Creator name</th>
-                                    <th>Progress</th>
+                                    {/* <th>Progress</th> */}
                                     <th>Content type</th>
                                     <th>View details</th>
                                 </tr>

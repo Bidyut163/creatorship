@@ -12,9 +12,12 @@ const Register = ({
         fullname: '',
         email: '',
         password: '',
+        industry: '',
     });
 
-    const { fullname, email, password } = formData;
+    const [formErrors, setFormErrors] = useState({});
+
+    const { fullname, email, password, industry } = formData;
 
     const onChange = (e) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,9 +25,36 @@ const Register = ({
     const onSubmit = (e) => {
         e.preventDefault();
 
-        // setFormErrors(validate(formData));
+        setFormErrors(validate(formData));
 
-        registerBusiness({ fullname, email, password });
+        registerBusiness({ fullname, email, password, industry });
+    };
+
+    const validate = (values) => {
+        const errors = {};
+        const email_regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+        if (!values.fullname) {
+            errors.fullname = 'Organization name is required';
+        }
+
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!email_regex.test(values.email)) {
+            errors.email = 'Please enter a valid Email';
+        }
+        if (!values.password) {
+            errors.password = 'password is required';
+        }
+        // } else if (values.password.length < 6) {
+        //     errors.password = 'password needs to be atleast 6 characters long';
+        // }
+
+        if (!values.industry) {
+            errors.industry = 'Select an Industry';
+        }
+
+        return errors;
     };
 
     if (isAuthenticated) {
@@ -72,6 +102,11 @@ const Register = ({
                                                 onChange={(e) => onChange(e)}
                                             />
                                         </div>
+                                        {formErrors.fullname ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.fullname}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
@@ -90,23 +125,57 @@ const Register = ({
                                                 onChange={(e) => onChange(e)}
                                             />
                                         </div>
+                                        {formErrors.email ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.email}
+                                            </p>
+                                        ) : null}
                                     </div>
-                                    {/* <div class="form-group">
-                                        <label>Country</label>
+                                    <div class="form-group">
+                                        <label>Industry</label>
                                         <select
                                             class="form-control form-control-lg"
                                             id="exampleFormControlSelect2"
+                                            name="industry"
+                                            value={industry}
+                                            onChange={(e) => onChange(e)}
                                         >
-                                            <option>Country</option>
-                                            <option>
-                                                United States of America
+                                            <option
+                                                value=""
+                                                selected
+                                                disabled
+                                                hidden
+                                            >
+                                                Industry
                                             </option>
-                                            <option>United Kingdom</option>
-                                            <option>India</option>
-                                            <option>Germany</option>
-                                            <option>Argentina</option>
+                                            <option value="Information Techonlogy">
+                                                Information Techonlogy
+                                            </option>
+                                            <option value="Healthcare">
+                                                Healthcare
+                                            </option>
+                                            <option value="Agriculture">
+                                                Agriculture
+                                            </option>
+                                            <option value="Manufacturing">
+                                                Manufacturing
+                                            </option>
+                                            <option value="Construction">
+                                                Construction
+                                            </option>
+                                            <option value="Education">
+                                                Education
+                                            </option>
+                                            <option value="Entertainment">
+                                                Entertainment
+                                            </option>
                                         </select>
-                                    </div> */}
+                                        {formErrors.industry ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.industry}
+                                            </p>
+                                        ) : null}
+                                    </div>
                                     <div class="form-group">
                                         <label>Password</label>
                                         <div class="input-group">
@@ -125,6 +194,11 @@ const Register = ({
                                                 onChange={(e) => onChange(e)}
                                             />
                                         </div>
+                                        {formErrors.password ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.password}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     {/* <div class="mb-4">
                                         <div class="form-check">

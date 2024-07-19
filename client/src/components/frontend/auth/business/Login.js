@@ -10,6 +10,8 @@ const Login = ({ auth: { isAuthenticated, userType }, loginBusiness }) => {
         password: '',
     });
 
+    const [formErrors, setFormErrors] = useState({});
+
     const { email, password } = formData;
 
     const onChange = (e) => {
@@ -19,9 +21,26 @@ const Login = ({ auth: { isAuthenticated, userType }, loginBusiness }) => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        setFormErrors(validate(formData));
+
         loginBusiness(email, password);
     };
 
+    const validate = (values) => {
+        const errors = {};
+        const email_regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!email_regex.test(values.email)) {
+            errors.email = 'Please enter a valid Email';
+        }
+        if (!values.password) {
+            errors.password = 'password is required';
+        }
+
+        return errors;
+    };
     // Redirect if Logged in
     if (isAuthenticated) {
         return <Redirect to="/admin/dashboard" />;
@@ -70,6 +89,11 @@ const Login = ({ auth: { isAuthenticated, userType }, loginBusiness }) => {
                                                 onChange={(e) => onChange(e)}
                                             />
                                         </div>
+                                        {formErrors.email ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.email}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword">
@@ -91,6 +115,11 @@ const Login = ({ auth: { isAuthenticated, userType }, loginBusiness }) => {
                                                 onChange={(e) => onChange(e)}
                                             />
                                         </div>
+                                        {formErrors.password ? (
+                                            <p className="invalid-feedback d-block">
+                                                {formErrors.password}
+                                            </p>
+                                        ) : null}
                                     </div>
                                     <div class="my-2 d-flex justify-content-between align-items-center">
                                         {/* <div class="form-check">
