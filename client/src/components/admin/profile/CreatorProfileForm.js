@@ -150,6 +150,14 @@ const CreatorProfileForm = ({ updateCreatorProfile, history }) => {
                                         value={creatorType}
                                         onChange={(e) => onChange(e)}
                                     >
+                                        <option
+                                            value=""
+                                            selected
+                                            disabled
+                                            hidden
+                                        >
+                                            Content Type
+                                        </option>
                                         <option value="Youtuber">
                                             Youtuber
                                         </option>

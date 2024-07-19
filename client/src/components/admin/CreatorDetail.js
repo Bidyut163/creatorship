@@ -150,7 +150,7 @@ const CreatorDetail = ({
                                         <div className="d-flex justify-content-between legend-label">
                                             <div>
                                                 <span className="bg-info"></span>
-                                                Content Type
+                                                Creator Type
                                             </div>
                                             <div>{profile.creatorType}</div>
                                         </div>

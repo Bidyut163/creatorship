@@ -127,6 +127,14 @@ const BusinessProfileForm = ({ updateBusinessProfile, history }) => {
                                         value={creatorReq}
                                         onChange={(e) => onChange(e)}
                                     >
+                                        <option
+                                            value=""
+                                            selected
+                                            disabled
+                                            hidden
+                                        >
+                                            Creator Type
+                                        </option>
                                         <option value="Youtuber">
                                             Youtuber
                                         </option>

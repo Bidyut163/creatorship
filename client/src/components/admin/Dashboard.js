@@ -158,7 +158,11 @@ const Dashboard = ({
                 <div class="col-xl-8 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Creator Details</h4>
+                            <h4 class="card-title">
+                                {userType === 'BUSINESS'
+                                    ? 'Business Details'
+                                    : 'Creator Details'}
+                            </h4>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="traffic-source-legend">
@@ -207,7 +211,9 @@ const Dashboard = ({
                                         <div class="d-flex justify-content-between legend-label">
                                             <div>
                                                 <span class="bg-info"></span>
-                                                Content Type
+                                                {userType === 'BUSINESS'
+                                                    ? 'Creator Required'
+                                                    : 'Creator Type'}
                                             </div>
                                             <div>
                                                 {userType === 'BUSINESS'

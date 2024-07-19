@@ -71,7 +71,7 @@ const Login = ({ auth: { isAuthenticated, userType }, loginBusiness }) => {
                                 >
                                     <div class="form-group">
                                         <label for="exampleInputEmail">
-                                            Username
+                                            Email
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-transparent">
