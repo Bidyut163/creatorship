@@ -39,43 +39,45 @@ const Dashboard = ({
 
     if (!loading && !profile)
         return (
-            <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-sm-12 mb-4 mb-xl-0">
-                        <h4 class="font-weight-bold text-dark">
+            <div className="content-wrapper">
+                <div className="row">
+                    <div className="col-sm-12 mb-4 mb-xl-0">
+                        <h4 className="font-weight-bold text-dark">
                             Hi, welcome back!
                         </h4>
-                        <p class="font-weight-normal mb-2 text-muted">{date}</p>
+                        <p className="font-weight-normal mb-2 text-muted">
+                            {date}
+                        </p>
                     </div>
                 </div>
 
-                <div class="row mt-3">
-                    <div class="col-xl-4 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
+                <div className="row mt-3">
+                    <div className="col-xl-4 grid-margin stretch-card">
+                        <div className="card">
+                            <div className="card-body">
+                                <div className="d-flex flex-column align-items-center text-center">
                                     {userType === 'BUSINESS' ? (
                                         <img
                                             src={require('../../assets/admin/images/faces/business.png')}
                                             alt="image"
-                                            class="rounded-circle"
+                                            className="rounded-circle"
                                             width="150"
                                         />
                                     ) : (
                                         <img
                                             src="https://bootdey.com/img/Content/avatar/avatar7.png"
                                             alt="Admin"
-                                            class="rounded-circle"
+                                            className="rounded-circle"
                                             width="150"
                                         />
                                     )}
 
-                                    <div class="mt-3">
+                                    <div className="mt-3">
                                         <h4>{user.fullname}</h4>
-                                        <p class="text-muted mb-1">
+                                        <p className="text-muted mb-1">
                                             {userType}
                                         </p>
-                                        <p class="text-muted font-size-sm">
+                                        <p className="text-muted font-size-sm">
                                             Bay Area, San Francisco, CA
                                         </p>
                                     </div>
@@ -84,9 +86,9 @@ const Dashboard = ({
                         </div>
                     </div>
 
-                    <div class="col-xl-8 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
+                    <div className="col-xl-8 grid-margin stretch-card">
+                        <div className="card">
+                            <div className="card-body">
                                 <p>Please Update your profile</p>
                                 {userType === 'CREATOR' ? (
                                     <Link
@@ -113,41 +115,43 @@ const Dashboard = ({
         );
 
     return (
-        <div class="content-wrapper">
-            <div class="row">
-                <div class="col-sm-12 mb-4 mb-xl-0">
-                    <h4 class="font-weight-bold text-dark">
+        <div className="content-wrapper">
+            <div className="row">
+                <div className="col-sm-12 mb-4 mb-xl-0">
+                    <h4 className="font-weight-bold text-dark">
                         Hi, welcome back!
                     </h4>
-                    <p class="font-weight-normal mb-2 text-muted">{date}</p>
+                    <p className="font-weight-normal mb-2 text-muted">{date}</p>
                 </div>
             </div>
 
-            <div class="row mt-3">
-                <div class="col-xl-4 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex flex-column align-items-center text-center">
+            <div className="row mt-3">
+                <div className="col-xl-4 grid-margin stretch-card">
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="d-flex flex-column align-items-center text-center">
                                 {userType === 'BUSINESS' ? (
                                     <img
                                         src={require('../../assets/admin/images/faces/business.png')}
                                         alt="image"
-                                        class="rounded-circle"
+                                        className="rounded-circle"
                                         width="150"
                                     />
                                 ) : (
                                     <img
                                         src="https://bootdey.com/img/Content/avatar/avatar7.png"
                                         alt="Admin"
-                                        class="rounded-circle"
+                                        className="rounded-circle"
                                         width="150"
                                     />
                                 )}
 
-                                <div class="mt-3">
+                                <div className="mt-3">
                                     <h4>{profile.user.fullname}</h4>
-                                    <p class="text-muted mb-1">{userType}</p>
-                                    <p class="text-muted font-size-sm">
+                                    <p className="text-muted mb-1">
+                                        {userType}
+                                    </p>
+                                    <p className="text-muted font-size-sm">
                                         {profile.address}
                                     </p>
                                 </div>
@@ -155,28 +159,28 @@ const Dashboard = ({
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-8 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">
+                <div className="col-xl-8 grid-margin stretch-card">
+                    <div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title">
                                 {userType === 'BUSINESS'
                                     ? 'Business Details'
                                     : 'Creator Details'}
                             </h4>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="traffic-source-legend">
-                                        <div class="d-flex justify-content-between mb-1 mt-2">
-                                            <div class="font-weight-bold">
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <div className="traffic-source-legend">
+                                        <div className="d-flex justify-content-between mb-1 mt-2">
+                                            <div className="font-weight-bold">
                                                 SOURCE
                                             </div>
-                                            <div class="font-weight-bold">
+                                            <div className="font-weight-bold">
                                                 Details
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 Company
                                             </div>
                                             <div>
@@ -185,32 +189,32 @@ const Dashboard = ({
                                                     : profile.company}
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 Company Website
                                             </div>
                                             <div>{profile.website}</div>
                                         </div>
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 Email Address
                                             </div>
                                             <div>{profile.email}</div>
                                         </div>
 
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 Contact Number
                                             </div>
                                             <div>{profile.phone}</div>
                                         </div>
 
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 {userType === 'BUSINESS'
                                                     ? 'Creator Required'
                                                     : 'Creator Type'}
@@ -222,9 +226,9 @@ const Dashboard = ({
                                             </div>
                                         </div>
 
-                                        <div class="d-flex justify-content-between legend-label">
+                                        <div className="d-flex justify-content-between legend-label">
                                             <div>
-                                                <span class="bg-info"></span>
+                                                <span className="bg-info"></span>
                                                 Address
                                             </div>
                                             <div>{profile.address}</div>
@@ -236,11 +240,11 @@ const Dashboard = ({
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-9 grid-margin-lg-0 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">About {userType}</h4>
+            <div className="row">
+                <div className="col-xl-9 grid-margin-lg-0 grid-margin stretch-card">
+                    <div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title">About {userType}</h4>
                             <div className="mt-3">
                                 <h5 className="card-title">About yourself</h5>
                                 <p className="mt-3">
@@ -270,13 +274,13 @@ const Dashboard = ({
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 grid-margin-lg-0 grid-margin stretch-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title mb-3">Overall rating</h4>
-                            <div class="d-flex">
+                <div className="col-xl-3 grid-margin-lg-0 grid-margin stretch-card">
+                    <div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title mb-3">Overall rating</h4>
+                            <div className="d-flex">
                                 <div>
-                                    <h4 class="text-dark font-weight-bold mb-2 mr-2">
+                                    <h4 className="text-dark font-weight-bold mb-2 mr-2">
                                         4.3
                                     </h4>
                                 </div>
@@ -284,7 +288,7 @@ const Dashboard = ({
                                     <select
                                         id="over-all-rating"
                                         name="rating"
-                                        autocomplete="off"
+                                        autoComplete="off"
                                     >
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -294,26 +298,26 @@ const Dashboard = ({
                                     </select>
                                 </div>
                             </div>
-                            <p class="mb-4">Based on 186 reviews</p>
-                            <div class="row">
-                                <div class="col-sm-2 pr-0">
-                                    <div class="d-flex">
+                            <p className="mb-4">Based on 186 reviews</p>
+                            <div className="row">
+                                <div className="col-sm-2 pr-0">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 5
                                             </div>
                                         </div>
                                         <div>
-                                            <i class="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-9 pl-2">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="progress progress-lg mt-1">
+                                <div className="col-sm-9 pl-2">
+                                    <div className="row">
+                                        <div className="col-sm-10">
+                                            <div className="progress progress-lg mt-1">
                                                 <div
-                                                    class="progress-bar bg-warning"
+                                                    className="progress-bar bg-warning"
                                                     role="progressbar"
                                                     style={{
                                                         width: '80%',
@@ -324,29 +328,31 @@ const Dashboard = ({
                                                 ></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 p-lg-0">80%</div>
+                                        <div className="col-sm-2 p-lg-0">
+                                            80%
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-sm-2 pr-0">
-                                    <div class="d-flex">
+                            <div className="row mt-2">
+                                <div className="col-sm-2 pr-0">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 4
                                             </div>
                                         </div>
                                         <div>
-                                            <i class="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-9 pl-2">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="progress progress-lg mt-1">
+                                <div className="col-sm-9 pl-2">
+                                    <div className="row">
+                                        <div className="col-sm-10">
+                                            <div className="progress progress-lg mt-1">
                                                 <div
-                                                    class="progress-bar bg-warning"
+                                                    className="progress-bar bg-warning"
                                                     role="progressbar"
                                                     style={{
                                                         width: '45%',
@@ -357,29 +363,31 @@ const Dashboard = ({
                                                 ></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 p-lg-0">45%</div>
+                                        <div className="col-sm-2 p-lg-0">
+                                            45%
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-sm-2 pr-0">
-                                    <div class="d-flex">
+                            <div className="row mt-2">
+                                <div className="col-sm-2 pr-0">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 3
                                             </div>
                                         </div>
                                         <div>
-                                            <i class="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-9 pl-2">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="progress progress-lg mt-1">
+                                <div className="col-sm-9 pl-2">
+                                    <div className="row">
+                                        <div className="col-sm-10">
+                                            <div className="progress progress-lg mt-1">
                                                 <div
-                                                    class="progress-bar bg-warning"
+                                                    className="progress-bar bg-warning"
                                                     role="progressbar"
                                                     style={{
                                                         width: '30%',
@@ -390,29 +398,31 @@ const Dashboard = ({
                                                 ></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 p-lg-0">30%</div>
+                                        <div className="col-sm-2 p-lg-0">
+                                            30%
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-sm-2 pr-0">
-                                    <div class="d-flex">
+                            <div className="row mt-2">
+                                <div className="col-sm-2 pr-0">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 2
                                             </div>
                                         </div>
                                         <div>
-                                            <i class="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-9 pl-2">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="progress progress-lg mt-1">
+                                <div className="col-sm-9 pl-2">
+                                    <div className="row">
+                                        <div className="col-sm-10">
+                                            <div className="progress progress-lg mt-1">
                                                 <div
-                                                    class="progress-bar bg-warning"
+                                                    className="progress-bar bg-warning"
                                                     role="progressbar"
                                                     style={{
                                                         width: '8%',
@@ -423,29 +433,31 @@ const Dashboard = ({
                                                 ></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 p-lg-0">8%</div>
+                                        <div className="col-sm-2 p-lg-0">
+                                            8%
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-sm-2 pr-0">
-                                    <div class="d-flex">
+                            <div className="row mt-2">
+                                <div className="col-sm-2 pr-0">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 5
                                             </div>
                                         </div>
                                         <div>
-                                            <i class="fa fa-star text-warning"></i>
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-9 pl-2">
-                                    <div class="row">
-                                        <div class="col-sm-10">
-                                            <div class="progress progress-lg mt-1">
+                                <div className="col-sm-9 pl-2">
+                                    <div className="row">
+                                        <div className="col-sm-10">
+                                            <div className="progress progress-lg mt-1">
                                                 <div
-                                                    class="progress-bar bg-warning"
+                                                    className="progress-bar bg-warning"
                                                     role="progressbar"
                                                     style={{
                                                         width: '1%',
@@ -456,36 +468,38 @@ const Dashboard = ({
                                                 ></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 p-lg-0">1%</div>
+                                        <div className="col-sm-2 p-lg-0">
+                                            1%
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <p class="mb-2 mt-3 mb-3 text-dark font-weight-bold">
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <p className="mb-2 mt-3 mb-3 text-dark font-weight-bold">
                                         Rating by category
                                     </p>
-                                    <div class="d-flex">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 4.3
                                             </div>
                                         </div>
-                                        <div class="mr-2">
-                                            <i class="fa fa-star text-warning"></i>
+                                        <div className="mr-2">
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                         <div>
                                             <p>Work/Management</p>
                                         </div>
                                     </div>
-                                    <div class="d-flex">
+                                    <div className="d-flex">
                                         <div>
-                                            <div class="text-dark font-weight-bold mb-2 mr-2">
+                                            <div className="text-dark font-weight-bold mb-2 mr-2">
                                                 3.5
                                             </div>
                                         </div>
-                                        <div class="mr-2">
-                                            <i class="fa fa-star text-warning"></i>
+                                        <div className="mr-2">
+                                            <i className="fa fa-star text-warning"></i>
                                         </div>
                                         <div>
                                             <p>Salary/Culture</p>

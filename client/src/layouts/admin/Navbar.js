@@ -15,22 +15,6 @@ const Navbar = ({
         <nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <Link className="navbar-brand brand-logo" to="index.html">
-                    {/* <i
-                        style={{
-                            color: 'white',
-                            marginTop: '2rem',
-                            marginRight: '.5rem',
-                        }}
-                        className="icon-box menu-icon"
-                    ></i>
-                    <span
-                        style={{
-                            color: 'white',
-                            fontFamily: 'Space Grotesk',
-                        }}
-                    >
-                        creatorship
-                    </span> */}
                     <img
                         src={
                             require('../../assets/admin/images/logo.svg')
@@ -112,7 +96,7 @@ const Navbar = ({
                             <p className="mb-0 font-weight-normal float-left dropdown-header">
                                 Messages
                             </p>
-                            <Link className="dropdown-item preview-item">
+                            <a className="dropdown-item preview-item">
                                 <div className="preview-thumbnail">
                                     <img
                                         src={require('../../assets/admin/images/faces/face4.jpg')}
@@ -128,11 +112,11 @@ const Navbar = ({
                                         The meeting is cancelled
                                     </p>
                                 </div>
-                            </Link>
-                            <Link className="dropdown-item preview-item">
+                            </a>
+                            <a className="dropdown-item preview-item">
                                 <div className="preview-thumbnail">
                                     <img
-                                        src="images/faces/face2.jpg"
+                                        src={require('../../assets/admin/images/faces/face2.jpg')}
                                         alt="image"
                                         className="profile-pic"
                                     />
@@ -145,11 +129,11 @@ const Navbar = ({
                                         New product launch
                                     </p>
                                 </div>
-                            </Link>
-                            <Link className="dropdown-item preview-item">
+                            </a>
+                            <a className="dropdown-item preview-item">
                                 <div className="preview-thumbnail">
                                     <img
-                                        src="images/faces/face3.jpg"
+                                        src={require('../../assets/admin/images/faces/face3.jpg')}
                                         alt="image"
                                         className="profile-pic"
                                     />
@@ -163,7 +147,7 @@ const Navbar = ({
                                         Upcoming board meeting
                                     </p>
                                 </div>
-                            </Link>
+                            </a>
                         </div>
                     </li>
                     {/* <li className="nav-item dropdown d-flex mr-4 ">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Navbar from './Navbar';
@@ -12,8 +12,19 @@ import '../../assets/admin/vendors/mdi/css/materialdesignicons.min.css';
 import '../../assets/admin/vendors/feather/feather.css';
 import '../../assets/admin/vendors/base/vendor.bundle.base.css';
 import '../../assets/admin/vendors/font-awesome/css/font-awesome.min.css';
+import '../../assets/admin/vendors/jquery-bar-rating/fontawesome-stars-o.css';
+import '../../assets/admin/vendors/jquery-bar-rating/fontawesome-stars.css';
 // import '../../assets/admin/fonts';
 // import '../../assets/admin/images/auth';
+
+// js
+// import '../../assets/admin/vendors/base/vendor.bundle.base';
+// import '../../assets/admin/js/off-canvas';
+// import '../../assets/admin/js/hoverable-collapse';
+// import '../../assets/admin/js/template';
+// import '../../assets/admin/vendors/chart.js/Chart.min';
+// import '../../assets/admin/vendors/jquery-bar-rating/jquery.barrating.min';
+// import '../../assets/admin/js/dashboard';
 
 const MasterLayout = () => {
     return (

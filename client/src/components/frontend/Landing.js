@@ -5,22 +5,22 @@ import Wrapper from '../../assets/wrappers/Landing';
 const Landing = () => {
     return (
         <Wrapper>
-            <header class="header">
-                <div class="header__text-box">
-                    <div class="heading-primary u-margin-bottom-small">
-                        <h1 class="heading-primary--main">Creatorship</h1>
-                        <span class="heading-primary--sub">
+            <header className="header">
+                <div className="header__text-box">
+                    <div className="heading-primary u-margin-bottom-small">
+                        <h1 className="heading-primary--main">Creatorship</h1>
+                        <span className="heading-primary--sub">
                             connect businesses and creators
                         </span>
                     </div>
 
                     <Link
                         to="/business/signup"
-                        class="btn btn--transparent u-margin-right-small"
+                        className="btn btn--transparent u-margin-right-small"
                     >
                         Business
                     </Link>
-                    <Link to="/creator/signup" class="btn btn--white">
+                    <Link to="/creator/signup" className="btn btn--white">
                         Creator
                     </Link>
                 </div>
